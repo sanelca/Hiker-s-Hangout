@@ -1,3 +1,17 @@
+body {
+  padding: 0;
+  margin: 0;
+  float: left;
+  width: 100%;
+}
+h1, h3, h2 {
+  float: left;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  color: #1b1b95;
+  margin-top: 10px;
+}
 #user_nav {
   float: left;
   width: 100%;
@@ -63,4 +77,187 @@
 #user_nav form .loginCheckbox input {
   width: 19px;
   margin-top: 14px;
+}
+.postOrCommentForm {
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+}
+.postOrCommentForm form {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+.postOrCommentForm textarea {
+
+}
+.postOrCommentForm input {
+    cursor: pointer;
+}
+
+.posList {
+  float: left;
+  width: 100%;
+}
+.posList .wrapper {
+  float: none;
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.posList .wrapper .post {
+  float: left;
+  padding: 2%;
+  background-color: #b7b7fc;
+  width: 96%;
+  margin-bottom: 10px;
+}
+.posList .wrapper .post p {
+  margin: 0;
+  float: left;
+  width: 100%;
+  text-align: justify;
+}
+.posList .wrapper .post .options {
+  float: left;
+      width: 100%;
+      margin-top: 10px;
+}
+.posList .wrapper .post .options a {
+  float: left;
+  margin-right: 5px;
+}
+.posList .wrapper .post .options form {
+  float: right;
+}
+.posList .wrapper .post .options form .btn{
+  float: right;
+}
+.posList .wrapper .author {
+  float: left;
+  width: 96%;
+  background-color: #6f6fec;
+  padding: 2%;
+  color: white;
+}
+.posList .wrapper .author a {
+  color: #c4deff;
+  float: left;
+}
+.posList .wrapper .commentList {
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+}
+.posList .wrapper .commentList .commentWrapper {
+    float: left;
+    width: 96%;
+    padding: 2%;
+    background-color: #e4e4e4;
+    border-bottom: solid 1px #c9c9c9;
+}
+.posList .wrapper .commentList .commentWrapper p {
+
+}
+.posList .wrapper .commentList .commentWrapper form {
+  float:left;
+}
+.posList .wrapper .commentList .commentWrapper button {
+  background: no-repeat;
+  border: navajowhite;
+  color: #0700ee;
+  cursor: pointer;
+}
+.posList .wrapper .commentForm {
+  float: left;
+      width: 100%;
+}
+.posList .wrapper .commentForm form {
+  float: left;
+      width: 100%;
+}
+.posList .wrapper .commentForm form textarea {
+  float: left;
+width: 100%;
+padding: 0;
+border: oldlace;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+.userList {
+  width: 510px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.userList .user {
+  float: left;
+  width: 96%;
+  padding: 2%;
+  background-color: #dedede;
+  margin-bottom: 5px;
+}
+.userList .user a {
+  float: left;
+      color: #527fd7;
+}
+.userList .user .pull-right {
+float: right;
+}
+.userList .user .pull-right form button {
+    cursor: pointer;
+}
+.userList .user a img {
+  float: left;
+  width: 50px;
+  margin-right: 7px;
+}
+.posList .wrapper .author span {
+  float: left;
+  margin-right: 5px;
+}
+.posList .wrapper .author a img {
+  float: left;
+  width: 20px;
+  margin-right: 7px;
+}
+.posList .wrapper .commentList .commentWrapper .authorPart {
+
+}
+.posList .wrapper .commentList .commentWrapper .authorPart span {
+  float: left;
+  margin-right: 7px;
+}
+.posList .wrapper .commentList .commentWrapper .authorPart a {
+float: left;
+}
+.posList .wrapper .commentList .commentWrapper .authorPart a img {
+  float: left;
+  width: 20px;
+  margin-right: 7px;
+}
+.posList .wrapper .commentList .commentWrapper p {
+  float: left;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.friendListShow {
+  float: none;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.friendListShow .friend {
+  float: left;
+  width: 16%;
+  margin-bottom: 10px;
+  padding: 2%;
+}
+.friendListShow .friend a {
+  float: left;
+  text-align: center;
+}
+.friendListShow .friend a img {
+  float: left;
+      width: 100%;
 }

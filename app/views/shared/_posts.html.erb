@@ -1,0 +1,43 @@
+<div class="posList">
+	<% @posts.each do |post| %>
+		<%
+			user = User.find_by(id: post.user_id)
+			likedOrNot = Like.find_by('user_id=? AND likeable_id=? AND likeable_type=?', current_user.id, post.id, "Post")
+		%>
+		<div class="wrapper">
+			<div class="author"><span>Author: </span><%= link_to image_tag('gravatar.jpg') + user.first_name + " " + user.last_name, user_path(user) %></div>
+      <div class="post">
+					<p><%= post.content %></p>
+					<div class="options">
+						<% if post.user_id == current_user.id %>
+							<%= link_to "Edit", edit_post_path(post) %>
+							<%= link_to "Delete", post_path(post), method: :delete %>
+						<% end %>
+						<%= link_to "Comments (#{post.comments.count})", comments_post_path(post.id) %>
+						<% if likedOrNot %>
+							<%= form_for :likes, :url => {:action => "unlike"} do %>
+						      <%= hidden_field_tag :unlike_id, likedOrNot.id %>
+									<%= button_tag(class:"btn btn-primary") do %>
+						        <%= content_tag :span, "Unlike (" + post.num_likes.to_s + ")", class: "glyphicon glyphicon-plus" %>
+						      <% end %>
+						  <% end %>
+							<% else %>
+							<%= form_for :likes, :url => {:action => "like"} do %>
+						      <%= hidden_field_tag :likeable_id, post.id %>
+									<%= hidden_field_tag :user_id, current_user.id %>
+									<%= hidden_field_tag :type, "Post" %>
+									<%= button_tag(class:"btn btn-primary") do %>
+						        <%= content_tag :span, "Like (" + post.num_likes.to_s + ")", class: "glyphicon glyphicon-plus" %>
+						      <% end %>
+						  <% end %>
+						<% end %>
+					</div>
+					<div class="commentForm">
+						<% @post = post %>
+						<%= render 'posts/comments_form' %>
+						<%= render 'posts/comments_list' %>
+					</div>
+				</div>
+		</div>
+	<% end %>
+</div>

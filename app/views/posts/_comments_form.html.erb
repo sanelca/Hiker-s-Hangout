@@ -1,0 +1,7 @@
+<%= form_tag({controller: "comments"}, method: "post") do %>
+		<%= hidden_field_tag :id, @post.id %>
+		<%= text_area(:comment, :content, cols: 53, rows: 4) %>
+		<%= button_tag(class:"btn btn-primary") do %>
+			<%= content_tag :span, "Comment", class: "glyphicon glyphicon-plus" %>
+		<% end %>
+<% end %>

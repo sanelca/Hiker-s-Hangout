@@ -10,11 +10,12 @@ Rails.application.routes.draw do
     member do
       get :comments
       resources :comments, only: [:create, :edit, :update, :destroy] do
-        resources :likes, only: [:create,:destroy]
+          resources :likes, only: [:create,:destroy]
       end
       resources :likes, only: [:create, :destroy], as: :post_likes
     end
   end
 
-
+  post 'posts/like', :to => 'posts#like'
+  post 'posts/unlike', :to => 'posts#unlike'  
 end
