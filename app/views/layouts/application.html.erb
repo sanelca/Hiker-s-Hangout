@@ -11,6 +11,7 @@
 
   <body>
     <div id="user_nav">
+      <%= link_to image_tag("2000px-Facebook_New_Logo_(2015).svg.png", :alt => "rss feed"), root_path %>
       <div class="urls">
         <% if user_signed_in? %>
         <%= link_to "Feed", posts_path %>
