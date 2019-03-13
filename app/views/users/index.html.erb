@@ -1,0 +1,38 @@
+<h1 class="text-center">All users <%= current_user.id %></h1>
+
+<div>
+  <div class="userList">
+    <% @users.each do |user|
+      @invitedTrue = false
+      @friends = false
+      @string = ""
+        @invited.each { |invited|
+          if (user.id == invited.friend_id || user.id == invited.user_id) && !invited.accepted
+            @invitedTrue = true
+            @string = "Friend Request Pending"
+          end
+          if (user.id == invited.friend_id || user.id == invited.user_id) && invited.accepted
+            @friends = true
+            @string = "Friends"
+          end
+        }
+%>
+      <div class="user">
+        <%= link_to image_tag('gravatar.jpg') + user.first_name + " " + user.last_name, user_path(user.id) %>
+        <div class="pull-right">
+          <% if @invitedTrue || @friends %>
+            <%= @string %>
+          <% else %>
+            <%= form_tag(request.base_url + '/friends#create') do %>
+              <%= hidden_field_tag :invite_id, user.id %>
+              <%= button_tag(class:"btn btn-primary") do %>
+                <%= content_tag :span, "Invite", class: "glyphicon glyphicon-plus" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end
+    %>
+  </div>
+</div>
