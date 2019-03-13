@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   root "home#index"
+
+  get 'friends/notifications', :to => 'friends#notifications'
+  get 'home/feed', :to => 'posts#index'
+  post 'friends/accept', :to => 'friends#accept'
+  post 'friends/unfriend', :to => 'friends#unfriend'
+  get 'friends/list', :to => 'friends#list'
+
   resources :users, only: [:index, :show, :edit]
   resources :friends
   resources :comments
@@ -17,5 +24,8 @@ Rails.application.routes.draw do
   end
 
   post 'posts/like', :to => 'posts#like'
-  post 'posts/unlike', :to => 'posts#unlike'  
+  post 'posts/unlike', :to => 'posts#unlike'
+
+  get '/users/:id', to: 'users#show', as: 'profile'
+  get 'users/edit', :to => 'users#edit'  
 end

@@ -16,7 +16,7 @@
             @string = "Friends"
           end
         }
-%>
+      %>
       <div class="user">
         <%= link_to image_tag('gravatar.jpg') + user.first_name + " " + user.last_name, user_path(user.id) %>
         <div class="pull-right">
@@ -32,7 +32,6 @@
           <% end %>
         </div>
       </div>
-    <% end
-    %>
+    <% end %>
   </div>
 </div>
