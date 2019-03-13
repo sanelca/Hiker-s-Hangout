@@ -1,0 +1,66 @@
+#user_nav {
+  float: left;
+  width: 100%;
+  background-color: #1576c3;
+}
+#user_nav img {
+  float: left;
+  height: 39px;
+  background-color: white;
+}
+#user_nav .urls {
+  float: right;
+}
+#user_nav .urls a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  float: left;
+  padding-left: 10px;
+  color: white;
+  padding-right: 10px;
+  font-size: 18px;
+}
+#user_nav .urls a:hover {
+  background-color: #1c87dc;
+}
+#user_nav form {
+  float: left;
+  min-width: 300px;
+}
+#user_nav form .fieldElement {
+  float: left;
+  margin-right: 10px;
+}
+#user_nav form label {
+  float: left;
+  margin-right: 10px;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#user_nav form input {
+  float: left;
+  width: 95px;
+  margin-top: 8px;
+}
+#user_nav form .actions {
+  float: left;
+}
+#user_nav form .actions input {
+  float: left;
+  width: 50px;
+  background-color: #0f0f89;
+  color: #ffffff;
+  border: none;
+  padding: 5px;
+  margin: 0;
+  margin-top: 8px;
+  cursor: pointer;
+}
+#user_nav form .loginCheckbox {
+    float: left;
+}
+#user_nav form .loginCheckbox input {
+  width: 19px;
+  margin-top: 14px;
+}

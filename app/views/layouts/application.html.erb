@@ -11,13 +11,37 @@
 
   <body>
     <div id="user_nav">
-      <% if user_signed_in? %>
-        Signed in as <%= current_user.email %>. Not you?
+      <div class="urls">
+        <% if user_signed_in? %>
+        <a>Feed</a>
+        <a>Users</a>
+        <a>Friends</a>
+        <a>Notifications</a>
+        <a>Profile</a>
+        <a>Options</a>
         <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> or
-        <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
+        <% else %>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="fieldElement">
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+            <div class="fieldElement">
+              <%= f.label :password %>
+              <%= f.password_field :password, autocomplete: "current-password" %>
+            </div>
+            <div class="actions">
+              <%= f.submit "Log in" %>
+            </div>
+            <% if devise_mapping.rememberable? %>
+              <div class="loginCheckbox">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+    </div>
     </div>
     <%= yield %>
   </body>
