@@ -13,7 +13,7 @@
     <div id="user_nav">
       <div class="urls">
         <% if user_signed_in? %>
-        <a>Feed</a>
+        <%= link_to "Feed", posts_path %>
         <a>Users</a>
         <a>Friends</a>
         <a>Notifications</a>
