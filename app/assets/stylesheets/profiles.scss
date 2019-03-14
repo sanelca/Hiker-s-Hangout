@@ -1,0 +1,264 @@
+// Place all the styles related to the Profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.profile-container {
+  width: 980px;
+  height: 790px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.banner-container {
+  width: 679px;
+  height: 250px;
+  position: relative;
+  border: 1px solid #232937;
+  background-color: #232937;
+}
+
+.banner-image img {
+  width: 170px;
+  height: 170px;
+  margin-left: 15px;
+  margin-top: 100px;
+  background-color: #232937;
+  border: 1px solid #232937;
+  position: absolute;
+  z-index: 1;
+}
+
+.banner-image span a {
+  display: inline-block;
+  color: #fff;
+  margin-top: 190px;
+  margin-left: 200px;
+  line-height: 30px;
+  font-size: 24px;
+  position: relative;
+  text-decoration: none;
+}
+
+.profile-edit {
+  float: right;
+  margin-left: 30px;
+  margin-top: 210px;
+  padding-left: 18px;
+  padding-right: 10px;
+  position: relative;
+}
+
+.profile-edit  a {
+  color: #666;
+  border: 1px solid #e9eaed;
+  background-color: #e9eaed;
+  position: relative;
+  padding: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  border-radius: 2px;
+}
+
+.profile-menu {
+  width: 679px;
+  height: 43px;
+  border: 1px solid #d3d6db;
+  position: relative;
+  background-color: #fff;
+}
+
+.profile-menu ul {
+  margin-left:  200px;
+  list-style: none;
+}
+
+.profile-menu ul li {
+  float: left;
+  height: 42px;
+  margin-top: -1px;
+  display: inline-block;
+  border-left: 1px solid #e9eaed;
+  border-right: 1px solid #e9eaed;
+}
+
+.profile-menu ul li a {
+  font-size: 14px;
+  height: 42px;
+  color: #3b5998;
+  text-decoration: none;
+  padding: 0 17px;
+  line-height: 42px;
+  font-weight: bold;
+}
+
+/*===========================================
+  Profile Data
+ ============================================*/
+.user-profile {
+   height: 420px;
+   width: 503px;
+   margin-top: 10px;
+   margin-left: 8px;
+   border: 1px solid #bdc7d8;
+   background-color: #fff;
+   color: #373e4d;
+ }
+
+.user-profile-title {
+  // width: 500px;
+  height: 60px;
+  background-color: #f7f5f5;
+  border-bottom: 1px solid #bdc7d8;
+}
+
+.user-profile-title h3 {
+  font-size: 20px;
+  padding: 16px 18px;
+  font-weight: bold;
+}
+
+.user-profile-data {
+  margin-top: 10px;
+}
+
+.user-profile-data ul li {
+  padding-left: 10px;
+  padding-bottom: 8px;
+}
+
+.user-profile-data li span {
+  font-weight: bold;
+}
+
+.user-profile-bottom {
+  width: 500px;
+  height: 60px;
+  margin-top: 132px;
+  background-color: #f7f5f5;
+  border-top: 1px solid #bdc7d8;
+}
+
+.profile-buttons {
+  margin-left: 180px;
+}
+
+.profile-buttons a {
+  margin-left: 50px;
+  padding: 4px 16px;
+  line-height: 60px;
+}
+
+/*===========================================
+  Profile Edit info
+ ============================================*/
+ .user-edit-profile {
+    clear: right;
+    height: 485px;
+    width: 500px;
+    margin-top: 10px;
+    margin-left: 12px;
+    border: 1px solid #bdc7d8;
+    background-color: #fff;
+    color: #373e4d;
+  }
+
+ .user-edit-profile div {
+   margin-bottom: 10px;
+ }
+
+ .user-edit-profile-bottom {
+   margin-left: -20px;
+   width: 498px;
+   height: 60px;
+   margin-top: 18px;
+   background-color: #f7f5f5;
+   border-top: 1px solid #bdc7d8;
+ }
+
+ .update-profile-buttom {
+   margin-top: 20px;
+   margin-left: 177px;
+ }
+
+ .btn {
+   color: #fff;
+   font-size: 14px;
+   padding: 5px 6px;
+   border-radius: 2px;
+   border: 1px solid #3a5795;
+   background-color: #3a5795;
+ }
+
+.user-profile-data form {
+  margin-left: 20px;
+}
+
+.user-edit-profile form input select {
+  margin-left: 10px;
+}
+
+.user-edit-profile input[type="date"] {
+  width: 360px;
+  margin-top: 8px;
+  padding: 5px 6px;
+  border: 1px solid #bcd7d8;
+}
+
+.user-edit-profile form select {
+  width: 360px;
+  padding: 5px 6px;
+  vertical-align: top;
+  border: 1px solid #bcd7d8;
+}
+
+.user-edit-profile label {
+  display: inline-block;
+  width: 80px;
+  color: #9197a3;
+}
+
+.user-edit-profile form textarea {
+  width: 360px;
+  height: 100px;
+  vertical-align: top;
+}
+
+/*=================================
+  Other options
+===================================*/
+
+.privacy span {
+  display: inline-block;
+  font-size: 14px;
+  width: 200px;
+}
+
+.privacy label {
+  width: 23px;
+}
+
+.privacy input[type="radio"] {
+  margin-left: 4px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/*
+===================================
+    Profile Content Styles
+===================================
+*/
+
+#ajax-content {
+  width: 520px;
+  margin-left: 27px;
+  display: inline-block;
+}
+
+#ajax-content .users-container {
+  margin-top: 8px !important ;
+  margin-left: 10px;
+}
+
+#ajax-content .frm-post {
+  margin-top: 8px;
+}
