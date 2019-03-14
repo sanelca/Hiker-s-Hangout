@@ -41,12 +41,12 @@ class PostsController < ApplicationController
 		@comments = @post.comments
 		@comment = current_user.comments.build()
 	end
-  
+
   def like
     @like = Like.new
     @like.likeable_type = params[:type]
     @like.likeable_id = params[:likeable_id]
-    @like.user_id = params[:user_id]
+    @like.user_id = current_user.id
     if @like.save
       redirect_to(posts_url)
     end
