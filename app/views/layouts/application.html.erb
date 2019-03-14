@@ -20,7 +20,7 @@
         <% if user_signed_in? %>
         <%= link_to "Feed", posts_path %>
         <%= link_to "Users", users_path %>
-        <a>Friends</a>
+        <%= link_to "Friends", controller: "friends", action: "list" %>
         <%= link_to "Notifications (#{@notificationCount})", controller: "friends", action: "notifications" %>
         <a>Profile</a>
         <a>Options</a>

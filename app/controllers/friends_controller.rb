@@ -21,5 +21,17 @@ class FriendsController < ApplicationController
     @friend = Friend.find_by("user_id = ? AND friend_id = ?", params[:invite_id] , current_user.id)
     Friend.update(@friend.id, :accepted => true)
     redirect_to(root_path)
-  end  
+  end
+
+  def list
+    @friends = getFriends
+  end
+
+  def unfriend
+    @destroy = destroyFriend(params[:invite_id])
+    @friend = Friend.find(@destroy)
+    @friend.destroy
+    redirect_to(root_path)
+  end
+
 end
