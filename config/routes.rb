@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'friends/unfriend', :to => 'friends#unfriend'
   get 'friends/list', :to => 'friends#list'
 
-  resources :users, only: [:index, :show, :edit]
+  resources :users
   resources :friends
   resources :comments
   resources :likes
@@ -27,5 +27,5 @@ Rails.application.routes.draw do
   post 'posts/unlike', :to => 'posts#unlike'
 
   get '/users/:id', to: 'users#show', as: 'profile'
-  get 'users/edit', :to => 'users#edit'  
+  get 'users/edit', :to => 'users#edit'
 end

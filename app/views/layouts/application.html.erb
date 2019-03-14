@@ -23,7 +23,7 @@
         <%= link_to "Friends", controller: "friends", action: "list" %>
         <%= link_to "Notifications (#{@notificationCount})", controller: "friends", action: "notifications" %>
         <a>Profile</a>
-        <a>Options</a>
+        <%= link_to "Options", edit_user_path(current_user) %>
         <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
         <% else %>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
