@@ -22,7 +22,7 @@
         <%= link_to "Users", users_path %>
         <%= link_to "Friends", controller: "friends", action: "list" %>
         <%= link_to "Notifications (#{@notificationCount})", controller: "friends", action: "notifications" %>
-        <a>Profile</a>
+        <%= link_to "Profile", profile_path(current_user) %>
         <%= link_to "Options", edit_user_path(current_user) %>
         <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
         <% else %>
