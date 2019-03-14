@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       resources :likes, only: [:create, :destroy], as: :post_likes
     end
   end
-
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :destroy_user
   post 'posts/like', :to => 'posts#like'
   post 'posts/unlike', :to => 'posts#unlike'
 

@@ -24,4 +24,13 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  def destroy
+    @user = User.find_by(id: params[:id])
+    if @user.destroy
+			redirect_to users_path
+		else
+			render 'edit'
+		end
+  end
 end
