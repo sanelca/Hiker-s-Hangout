@@ -36,6 +36,12 @@ class PostsController < ApplicationController
 		end
 	end
 
+  def comments
+		@post = Post.find_by(id: params[:id])
+		@comments = @post.comments
+		@comment = current_user.comments.build()
+	end
+  
   def like
     @like = Like.new
     @like.likeable_type = params[:type]
@@ -45,7 +51,7 @@ class PostsController < ApplicationController
       redirect_to(posts_url)
     end
   end
-  
+
   def unlike
     @like = Like.find_by(id: params[:unlike_id])
     if @like.user_id == current_user.id

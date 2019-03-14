@@ -23,4 +23,31 @@ module FriendsHelper
     }
     return friendList
   end
+
+  def friends
+    Friend.where('user_id=? OR friend_id=?', current_user.id, current_user.id).where(:accepted => true)
+  end
+
+  def getFriends
+    @friendList = []
+    friends.each { | friend |
+      if friend.user_id == current_user.id
+        user = User.find(friend.friend_id)
+      end
+      if friend.friend_id == current_user.id
+        user = User.find(friend.user_id)
+      end
+      @friendList.push(user)
+    }
+    return @friendList
+  end
+
+  def destroyFriend(friendId)
+    friendsKeys = Friend.where('user_id=? OR friend_id=?', current_user.id, current_user.id).where(accepted: true)
+    friendsKeys.each { |friend|
+      if friend.user_id == friendId.to_i || friend.friend_id == friendId.to_i
+        return friend.id
+      end
+    }
+  end  
 end

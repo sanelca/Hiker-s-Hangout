@@ -1,0 +1,56 @@
+<div class="posList">
+	<div class="wrapper">
+		<div class="post">
+			<%
+				postAuthor = User.find_by(id: @post.user_id)
+			%>
+			<div class="author">
+				<span>Post author: </span>
+				<%= link_to image_tag('gravatar.jpg') + postAuthor.first_name + " " + postAuthor.last_name, user_path(postAuthor) %>
+			</div>
+			<p><%= @post.content %></p>
+			<% if @post.user_id == current_user.id %>
+				<%= link_to "Edit", edit_post_path(@post) %>
+				<%= link_to "Delete", post_path(@post), method: :delete %>
+			<% end %>
+		</div>
+		<div class="commentList">
+		  <% if @post.comments.count > 0 %>
+		    <% @post.comments.each { |comment| %>
+		      <%
+		        likedOrNot = Like.find_by('user_id=? AND likeable_id=? AND likeable_type=?', current_user.id, comment.id, "Comment")
+		        commentAuthor = User.find_by(id: comment.user_id)
+		      %>
+		      <div class="commentWrapper">
+		        <p class="authorPart"><span>Commented by: </span><%= link_to image_tag('gravatar.jpg') + commentAuthor.first_name + " " + commentAuthor.last_name, user_path(commentAuthor) %></p>
+		        <p><%= comment.content %></p>
+		        <div class="options">
+		          <% if comment.user_id == current_user.id %>
+		            <%= link_to "Edit", edit_comment_path(comment) %>
+		            <%= link_to "Delete", comment_path(comment), method: :delete %>
+		          <% end %>
+		          <% if likedOrNot %>
+		            <%= form_tag({controller: "posts", action: "unlike"}, method: "post") do %>
+		                <%= hidden_field_tag :unlike_id, likedOrNot.id %>
+		                <%= button_tag do %>
+		                  <%= content_tag :span, "Unlike (" + comment.num_likes.to_s + ")" %>
+		                <% end %>
+		            <% end %>
+		            <% else %>
+		            <%= form_tag({controller: "posts", action: "like"}, method: "post") do %>
+		                <%= hidden_field_tag :likeable_id, comment.id %>
+		                <%= hidden_field_tag :user_id, current_user.id %>
+		                <%= hidden_field_tag :type, "Comment" %>
+		                <%= button_tag do %>
+		                  <%= content_tag :span, "Like (" + comment.num_likes.to_s + ")"%>
+		                <% end %>
+		            <% end %>
+		          <% end %>
+		        </div>
+		      </div>
+		    <% } %>
+		  <% end %>
+		</div>
+	</div>
+
+</div>
