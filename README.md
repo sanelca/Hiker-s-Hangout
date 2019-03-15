@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is ruby application to demonstrate how a facebook like application can be implemented using ruby.
 
-Things you may want to cover:
 
-* Ruby version
+## Installation
+* Clone the repository
 
-* System dependencies
+* Run bundle install 
 
-* Configuration
+* Run migrations
 
-* Database creation
+* Run rails s
 
-* Database initialization
+Contributors 
 
-* How to run the test suite
+Sanel Hozdic
+Osinakayah Ifeanyi
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
