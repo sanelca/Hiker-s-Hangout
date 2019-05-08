@@ -1,3 +1,6 @@
+<%
+p @users
+%>
 <h1 class="text-center">All users <%= current_user.id %></h1>
 
 <div>
@@ -7,11 +10,11 @@
       @friends = false
       @string = ""
         @invited.each { |invited|
-          if (user.id == invited.friend_id || user.id == invited.user_id) && !invited.accepted
+          if (user.id == invited.follower_id || user.id == invited.followed_id) && !invited.active
             @invitedTrue = true
             @string = "Friend Request Pending"
           end
-          if (user.id == invited.friend_id || user.id == invited.user_id) && invited.accepted
+          if (user.id == invited.follower_id || user.id == invited.followed_id) && invited.active
             @friends = true
             @string = "Friends"
           end
@@ -24,7 +27,7 @@
             <%= @string %>
           <% else %>
             <%= form_tag(request.base_url + '/friends#create') do %>
-              <%= hidden_field_tag :invite_id, user.id %>
+              <%= hidden_field_tag :followed_id, user.id %>
               <%= button_tag(class:"btn btn-primary") do %>
                 <%= content_tag :span, "Invite", class: "glyphicon glyphicon-plus" %>
               <% end %>

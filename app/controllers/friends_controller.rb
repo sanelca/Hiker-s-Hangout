@@ -1,37 +1,26 @@
 class FriendsController < ApplicationController
-  include FriendsHelper
   def create
-		@sentInvite = params[:invite_id]
-    @user = current_user.id
-		@invite = Friend.new
-    @invite.user_id = @user
-    @invite.friend_id = @sentInvite
-		if @invite.save
-			redirect_to(users_path)
-		else
-      redirect_to(root_path)
-		end
+    user = User.find(params[:followed_id])
+    current_user.follow(user)
+    redirect_to users_path
 	end
 
   def notifications
-    @friendRequests = getNotifications
+    @friendRequests = Relationship.getNotifications(current_user.id)
   end
 
   def accept
-    @friend = Friend.find_by("user_id = ? AND friend_id = ?", params[:invite_id] , current_user.id)
-    Friend.update(@friend.id, :accepted => true)
-    redirect_to(root_path)
+    Relationship.accept(params[:invite_id], current_user.id)
+    redirect_to(users_path)
   end
 
   def list
-    @friends = getFriends
+    @friends = Relationship.getFriends(current_user.id)
   end
 
   def unfriend
-    @destroy = destroyFriend(params[:invite_id])
-    @friend = Friend.find(@destroy)
-    @friend.destroy
-    redirect_to(root_path)
+    user = Relationship.unfriend(params[:invite_id], current_user.id)
+    redirect_to users_path
   end
 
 end

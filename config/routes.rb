@@ -12,6 +12,14 @@ Rails.application.routes.draw do
   resources :friends
   resources :comments
   resources :likes
+  
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
+
 
   resources :posts do
     member do

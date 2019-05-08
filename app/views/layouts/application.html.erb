@@ -10,7 +10,7 @@
   </head>
   <%
     if user_signed_in?
-      @notificationCount = Friend.where('friend_id=? AND accepted=?', current_user.id, false).count
+      @notificationCount = Relationship.where('followed_id=? AND active=?', current_user.id, false).count
     end
   %>
   <body>

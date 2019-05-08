@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   include PostsHelper
   def index
-    @posts = allPosts
+    @posts = Post.allPosts(current_user.id)
     @post = Post.new
   end
 

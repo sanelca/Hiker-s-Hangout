@@ -14,4 +14,19 @@ class Post < ApplicationRecord
   def liked?
     num_likes > 0
   end
+
+  def self.allPosts(id)
+    idList = [id]
+    friends = Relationship.where('follower_id=? OR followed_id=?', id, id).where(active: true)
+    friends.each { | friend |
+      if friend.follower_id == id
+        idList.push(friend.followed_id)
+      end
+      if friend.followed_id == id
+        idList.push(friend.follower_id)
+      end
+    }
+    posts = Post.where(user_id: idList)
+    return posts
+  end
 end
