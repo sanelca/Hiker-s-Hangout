@@ -1,11 +1,12 @@
 class Comment < ApplicationRecord
-  belongs_to :user
-  belongs_to :post
+  belongs_to :user, optional: true
+  belongs_to :post, optional: true
   has_many :likes, as: :likeable, dependent: :destroy
 
   validates :content, presence: true
-  validates_presence_of :user, :post
-
+  validates :user_id, presence: true
+  validates :post_id, presence: true
+  
   def num_likes
     likes.count
   end
