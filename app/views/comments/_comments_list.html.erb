@@ -1,0 +1,9 @@
+<div class="commentList">
+  <% if @post.comments.count > 0 %>
+    <% @post.comments.each { |comment|
+      @commentData = comment
+    %>
+      <%= render 'comments/comment' %>
+    <% } %>
+  <% end %>
+</div
