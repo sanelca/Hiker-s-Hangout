@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="author"><span>Author: </span><%= link_to image_tag('gravatar.jpg') + @post.user.first_name + " " + @post.user.last_name, user_path(@post.user) %></div>
+  <div class="post">
+      <p> <%= @post.content %></p>
+      <div class="options">
+        <% if @post.user_id == current_user.id %>
+          <%= link_to "Edit", edit_post_path(@post) %>
+          <%= link_to "Delete", post_path(@post), method: :delete %>
+        <% end %>
+        <%= link_to "Comments (#{@post.comments.count})", comments_post_path(@post.id) %>
+        <%= render 'posts/posts_liked_or_not' %>
+      </div>
+      <div class="commentForm">
+        <%= render 'posts/comments_form' %>
+        <%= render 'posts/comments_list' %>
+      </div>
+  </div>
+</div>
