@@ -6,25 +6,18 @@ p @users
 <div>
   <div class="userList">
     <% @users.each do |user|
-      @invitedTrue = false
-      @friends = false
-      @string = ""
-        @invited.each { |invited|
-          if (user.id == invited.follower_id || user.id == invited.followed_id) && !invited.active
-            @invitedTrue = true
-            @string = "Friend Request Pending"
-          end
-          if (user.id == invited.follower_id || user.id == invited.followed_id) && invited.active
-            @friends = true
-            @string = "Friends"
-          end
-        }
+      string = nil
+      @invited.each { |invited|
+        if !string
+          string = friendStatus(user.id, invited, string)
+        end
+      }
       %>
       <div class="user">
         <%= link_to image_tag('gravatar.jpg') + user.first_name + " " + user.last_name, user_path(user.id) %>
         <div class="pull-right">
-          <% if @invitedTrue || @friends %>
-            <%= @string %>
+          <% if string %>
+            <%= string %>
           <% else %>
             <%= form_tag(request.base_url + '/friends#create') do %>
               <%= hidden_field_tag :followed_id, user.id %>
