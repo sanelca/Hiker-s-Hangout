@@ -2,14 +2,8 @@
   likedComment = likedOrNot(@commentData.id, "Comment")
 %>
 <% if likedComment %>
-  <%= form_tag({controller: "posts", action: "unlike"}, method: "post") do %>
-      <%= hidden_field_tag :unlike_id, likedComment.id %>
-      <%= button_tag do %>
-        <%= content_tag :span, "Unlike (" + @commentData.num_likes.to_s + ")" %>
-      <% end %>
-  <% end %>
-  <% else %>
-  <%= form_tag({controller: "posts", action: "like"}, method: "post") do %>
+  <%= link_to "Unlike", like_path(likedComment), method: :delete %><% else %>
+  <%= form_for(@like) do |like| %>
       <%= hidden_field_tag :likeable_id, @commentData.id %>
       <%= hidden_field_tag :user_id, current_user.id %>
       <%= hidden_field_tag :type, "Comment" %>
