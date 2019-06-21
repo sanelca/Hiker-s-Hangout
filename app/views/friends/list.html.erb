@@ -1,0 +1,15 @@
+<div class="userList">
+  <% @friends.each { |friend| %>
+    <div class="user">
+      <%= link_to image_tag('gravatar.jpg') + friend.first_name + " " + friend.last_name, user_path(friend.id) %>
+      <div class="pull-right">
+        <%= form_for :friends, :url => {:action => "unfriend"} do %>
+          <%= hidden_field_tag :invite_id, friend.id %>
+          <%= button_tag(class:"btn btn-primary") do %>
+            <%= content_tag :span, "Unfriend", class: "glyphicon glyphicon-plus" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% } %>
+</div>

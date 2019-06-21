@@ -1,0 +1,7 @@
+<div class="posList">
+	<% @posts.each do |post|
+		@post = post
+	%>
+		<%= render 'posts/post' %>
+	<% end %>
+</div>

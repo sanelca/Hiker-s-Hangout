@@ -1,0 +1,15 @@
+  <%
+  likedPost = likedOrNot(@post.id, "Post")
+  if likedPost
+  %>
+  <%= link_to "Unlike", like_path(likedPost), method: :delete %>
+  <% else %>
+  <%= form_for(@like) do |like| %>
+        <%= hidden_field_tag :likeable_id, @post.id %>
+        <%= hidden_field_tag :user_id, current_user.id %>
+        <%= hidden_field_tag :type, "Post" %>
+        <%= button_tag do %>
+          <%= content_tag :span, "Like (" + @post.num_likes.to_s + ")"%>
+        <% end %>
+    <% end %>
+<% end %>

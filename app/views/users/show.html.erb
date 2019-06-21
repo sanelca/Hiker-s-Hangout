@@ -1,0 +1,22 @@
+<% if @friends.count > 0 %>
+  <h2 class="text-center">Friends List</h2>
+  <div class="friendListShow">
+    <% @friends.each { |friend| %>
+      <div class="friend">
+        <%= link_to image_tag('gravatar.jpg') + friend.first_name + " " + friend.last_name, user_path(friend) %>
+      </div>
+    <% } %>
+  </div>
+<% end %>
+
+<% if @posts.count > 0 %>
+<h2 class="text-center">Post History</h2>
+  <div class="posList">
+    <%
+    @posts.each { | post |
+    @post = post
+    %>
+      <%= render 'posts/post' %>
+    <% } %>
+  </div>
+<% end %>

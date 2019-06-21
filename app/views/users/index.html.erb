@@ -1,0 +1,33 @@
+<%
+p @users
+%>
+<h1 class="text-center">All users <%= current_user.id %></h1>
+
+<div>
+  <div class="userList">
+    <% @users.each do |user|
+      string = nil
+      @invited.each { |invited|
+        if !string
+          string = friendStatus(user.id, invited, string)
+        end
+      }
+      %>
+      <div class="user">
+        <%= link_to image_tag('gravatar.jpg') + user.first_name + " " + user.last_name, user_path(user.id) %>
+        <div class="pull-right">
+          <% if string %>
+            <%= string %>
+          <% else %>
+            <%= form_tag(request.base_url + '/friends#create') do %>
+              <%= hidden_field_tag :followed_id, user.id %>
+              <%= button_tag(class:"btn btn-primary") do %>
+                <%= content_tag :span, "Invite", class: "glyphicon glyphicon-plus" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

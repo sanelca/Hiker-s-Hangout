@@ -1,0 +1,14 @@
+// Place all the styles related to the Friendships controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.empty-list {
+  height: 100px;
+  text-align: center;
+  border-bottom: 1px solid #d3d6db;
+}
+
+.no-friendship {
+  font-size: 20px;
+  padding-top: 35px;
+  font-weight: bold;
+} 

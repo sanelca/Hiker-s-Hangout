@@ -1,0 +1,25 @@
+<div class="posList">
+	<div class="wrapper">
+		<div class="post">
+			<div class="author">
+				<span>Post author: </span>
+				<%= link_to image_tag('gravatar.jpg') + @post.user.first_name + " " + @post.user.last_name, user_path(@post.user) %>
+			</div>
+			<p><%= @post.content %></p>
+			<% if @post.user_id == current_user.id %>
+				<%= link_to "Edit", edit_post_path(@post) %>
+				<%= link_to "Delete", post_path(@post), method: :delete %>
+			<% end %>
+		</div>
+		<div class="commentList">
+		  <% if @post.comments.count > 0 %>
+		    <% @post.comments.each { |comment|
+					@commentData = comment
+				%>
+				<%= render 'comments/comment' %>
+				<% } %>
+		  <% end %>
+		</div>
+	</div>
+
+</div>
