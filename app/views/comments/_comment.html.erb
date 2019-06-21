@@ -1,0 +1,11 @@
+<div class="commentWrapper">
+  <p class="authorPart"><span>Commented by: </span><%= link_to image_tag('gravatar.jpg') + @commentData.user.first_name + " " + @commentData.user.last_name, user_path(@commentData.user) %></p>
+  <p><%= @commentData.content %></p>
+  <div class="options">
+    <% if @commentData.user_id == current_user.id %>
+      <%= link_to "Edit", edit_comment_path(@commentData) %>
+      <%= link_to "Delete", comment_path(@commentData), method: :delete %>
+    <% end %>
+    <%= render 'comments/comment_liked_or_not' %>
+  </div>
+</div>

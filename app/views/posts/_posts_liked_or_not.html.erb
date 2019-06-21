@@ -1,0 +1,20 @@
+<%
+likedPost = likedOrNot(@post.id, "Post")
+if likedPost
+%>
+  <%= form_tag({controller: "posts", action: "unlike"}, method: "post") do %>
+      <%= hidden_field_tag :unlike_id, likedPost.id %>
+      <%= button_tag do %>
+        <%= content_tag :span, "Unlike (" + @post.num_likes.to_s + ")" %>
+      <% end %>
+  <% end %>
+  <% else %>
+  <%= form_tag({controller: "posts", action: "like"}, method: "post") do %>
+        <%= hidden_field_tag :likeable_id, @post.id %>
+        <%= hidden_field_tag :user_id, current_user.id %>
+        <%= hidden_field_tag :type, "Post" %>
+        <%= button_tag do %>
+          <%= content_tag :span, "Like (" + @post.num_likes.to_s + ")"%>
+        <% end %>
+    <% end %>
+<% end %>
