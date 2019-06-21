@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.allPosts(current_user.id)
     @post = Post.new
+    @like = Like.new
   end
 
   def create
@@ -40,23 +41,6 @@ class PostsController < ApplicationController
 		@post = Post.find_by(id: params[:id])
 		@comments = @post.comments
 		@comment = current_user.comments.build()
-	end
-
-  def like
     @like = Like.new
-    @like.likeable_type = params[:type]
-    @like.likeable_id = params[:likeable_id]
-    @like.user_id = current_user.id
-    if @like.save
-      redirect_to(posts_url)
-    end
-  end
-
-  def unlike
-    @like = Like.find_by(id: params[:unlike_id])
-    if @like.user_id == current_user.id
-      @like.destroy
-      redirect_to(posts_url)
-    end
-  end
+	end
 end

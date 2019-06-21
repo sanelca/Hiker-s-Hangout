@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @posts = @user.posts.reorder("created_at DESC")
     @friends = Relationship.findFriendsByUserid(@user.id)
+    @like = Like.new
 	end
 
   def edit
