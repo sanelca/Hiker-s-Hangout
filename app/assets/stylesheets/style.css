@@ -89,10 +89,13 @@ h1, h3, h2 {
   text-align: center;
 }
 .postOrCommentForm textarea {
-
+  width: 450px;
+  height: 65px;
 }
 .postOrCommentForm input {
-    cursor: pointer;
+  cursor: pointer;
+  margin-bottom: 10px;
+  width: 180px;
 }
 
 .posList {
@@ -101,14 +104,14 @@ h1, h3, h2 {
 }
 .posList .wrapper {
   float: none;
-  width: 450px;
+  width: 585px;
   margin-left: auto;
   margin-right: auto;
 }
 .posList .wrapper .post {
   float: left;
   padding: 2%;
-  background-color: #b7b7fc;
+  background-color: #efefef;
   width: 96%;
   margin-bottom: 10px;
 }
@@ -130,13 +133,19 @@ h1, h3, h2 {
 .posList .wrapper .post .options form {
   float: right;
 }
-.posList .wrapper .post .options form .btn{
-  float: right;
+.posList .wrapper .post .options form button[name="button"]{
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 6px;
+  border-radius: 2px;
+  border: 1px solid #3a5795;
+  background-color: #3a5795;
+  cursor:pointer;
 }
 .posList .wrapper .author {
   float: left;
   width: 96%;
-  background-color: #6f6fec;
+  background-color: #4f71bb;
   padding: 2%;
   color: white;
 }
@@ -260,4 +269,65 @@ float: left;
 .friendListShow .friend a img {
   float: left;
       width: 100%;
+}
+.home-register-form {
+  float: right;
+  width: 42%;
+}
+.home-register-form .new_user {
+  float: left;
+  width: 100%;
+  margin-top: 11px;
+}
+.editUser .new_user {
+  float: none;
+  margin: auto;
+  width: 60%;
+}
+.new_user .field {
+  float: left;
+  width: 100%;
+  margin-top: 6px;
+}
+.new_user .field label {
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 6px;
+}
+.new_user .field input {
+  float: left;
+  width: 90%;
+  height: 20px;
+  cursor: auto;
+}
+.home-register-form .new_user .actions {
+  float: left;
+  width: 100%;
+  margin-top: 5px;
+  text-align: center;
+}
+.home-register-form .new_user .actions input,
+.editUser .new_user .actions input {
+  width: 200px;
+  height: 28px;
+  background-color: #00529bc9;
+  color: white;
+  font-weight: bold;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+.destroyUser {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+.destroyUser a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #3273ae;
+  color: white;
 }
