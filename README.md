@@ -30,6 +30,10 @@ dependencies.
 
 Run `bundle install` to install all project dependencies.
 
+### Migration
+
+run `rake db:migrate` to migrate database
+
 ### Serve Project
 
 Run the server with the following command:
@@ -63,7 +67,3 @@ You can deploy the project on [Heroku](https://www.heroku.com/) using the follow
 
 * **Sanel Hodzic** - [sanelca](https://github.com/sanelca)
 * **Osinakayah Ifeanyi** - [osinakayah](https://github.com/osinakayah)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
