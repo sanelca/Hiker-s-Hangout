@@ -42,7 +42,7 @@ Run the server with the following command:
 rails s
 ```
 
-Once its running, head over to your browser to [see Fakebook](http://localhost:3000/).
+Once its running, head over to your browser to [see Hickers Hangout](http://localhost:3000/).
 
 
 ### Running Tests
