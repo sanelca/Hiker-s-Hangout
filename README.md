@@ -1,6 +1,6 @@
-# Fakebook
+# Hickers Hangout
 
-Facebook implementation built on Ruby on Rails.
+Hickers Hangout implementation built on Ruby on Rails.
 
 ## Getting Started
 
@@ -60,7 +60,7 @@ You can deploy the project on [Heroku](https://www.heroku.com/) using the follow
 2. On the terminal, run `heroku create` to create a new app
 3. Run `heroku push` to start a deployment on Heroku.
 4. Run `heroku migrate` to run migrations on your production database.
-5. Visit your project URL as assigned by Heroku to see a live deployment of Fakebook.
+5. Visit your project URL as assigned by Heroku to see a live deployment of Hickers Hangout.
 
 
 ## Authors
