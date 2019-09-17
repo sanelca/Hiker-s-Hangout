@@ -1,6 +1,6 @@
-# Hickers Hangout
+# Hicker's Hangout
 
-Hickers Hangout implementation built on Ruby on Rails.
+Hicker's Hangout implementation built on Ruby on Rails.
 
 ## Getting Started
 
@@ -42,7 +42,7 @@ Run the server with the following command:
 rails s
 ```
 
-Once its running, head over to your browser to [see Hickers Hangout](http://localhost:3000/).
+Once its running, head over to your browser to [see Hicker's Hangout](http://localhost:3000/).
 
 
 ### Running Tests
